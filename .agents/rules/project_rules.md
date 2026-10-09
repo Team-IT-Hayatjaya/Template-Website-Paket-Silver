@@ -1,25 +1,21 @@
-# Rules Proyek: Template Website Instansi Pemerintah (Paket Silver)
+# Aturan & Panduan Pengembangan Proyek (Paket Silver)
 
 - Proyek: Website instansi pemerintah buatan PT Hayat Jaya Teknologi (HJT), paket SILVER.
-- Bahasa antarmuka: Bahasa Indonesia.
-- Modul PPID mengacu pada UU No. 14 Tahun 2008 tentang Keterbukaan Informasi Publik.
-- Cakupan Silver: template web standar, menu PPID dasar (formulir permohonan, keberatan sederhana, Daftar Informasi Publik), panel admin, laporan sederhana, backup bulanan.
-- DI LUAR CAKUPAN (JANGAN DIBUAT):
-  * Cek status publik atau tracking resi
-  * Tenggat otomatis dan pengingat
-  * Riwayat status
-  * Jawaban di dalam sistem
-  * Widget aksesibilitas (TTS, kontras, ukuran teks)
-  * Desain kustom
-  * Open Data
-  * WhatsApp Bot
-  * Sub-domain
-  * Multi-unit
-  * Bila ragu apakah sesuatu masuk Silver, tanyakan dulu.
-- Hosting: Cloud hosting standar (shared atau VPS kecil). Jangan bergantung pada Redis, worker yang berjalan terus, atau Docker di produksi. Antrean memakai driver database atau sync; tugas terjadwal lewat cron php artisan schedule:run.
-- Aturan kerja:
-  * Kerjakan satu modul per tugas.
-  * Jelaskan rencana sebelum mengubah banyak file.
-  * Jangan mengubah file di luar cakupan tugas.
-  * Jangan menulis kredensial atau data pribadi asli ke kode (pakai .env dan .env.example).
-  * Setelah selesai jalankan test dan tulis ringkasan perubahan beserta cara mengujinya.
+- Bahasa antarmuka: Bahasa Indonesia formal & baku.
+- Modul PPID mengacu pada UU No. 14 Tahun 2008.
+
+## Front End Rules
+- Stack: Blade, Tailwind CSS, Alpine.js, Vite.
+- SATU template standar untuk semua klien Silver. Tema hanya diatur lewat variabel dinamis: logo, nama instansi, warna utama, favicon (dari pengaturan admin / file config / database), bukan desain kustom per klien.
+- Mobile-first dan responsif.
+- Aksesibilitas standar: HTML semantik, label formulir, alt gambar, fokus terlihat, kontras memadai (tanpa widget TTS/contrast switcher).
+- Kinerja: WebP, lazy loading, hindari library berat.
+- Komponen Blade reusable untuk template Gold dan Platinum kelak.
+
+## Back End Rules
+- Stack: Laravel (PHP) dan MySQL.
+- Tabel Silver: users, roles (spatie/laravel-permission), kategori_informasi, dokumen_informasi, permohonan_informasi, status_permohonan, keberatan, pengaturan_ppid, log_aktivitas.
+- Tabel DILARANG / BELUM dibuat (fitur Gold): riwayat_permohonan, jawaban_permohonan, tanggapan_keberatan, hari_libur. Kolom tenggat_jawab dan tenggat_diperpanjang boleh ada tetapi dibiarkan kosong (nullable). Rancang agar migrasi tabel Gold kelak bersifat non-destruktif.
+- Pemrosesan jawaban permohonan dan keberatan dilakukan admin DI LUAR SISTEM. Sistem hanya mencatat, menyimpan status manual internal (tidak tampil di publik), dan mengirim email konfirmasi.
+- Keamanan: Form Request, Eloquent query binding, CSRF, rate limit form publik, NIK encrypted cast, berkas identitas di storage non-publik, catat log aktivitas.
+- Struktur: Service class, Policy, test wajib, migration bisa di-rollback.
