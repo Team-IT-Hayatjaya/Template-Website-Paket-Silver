@@ -1,77 +1,152 @@
 @extends('layouts.app')
 
-@section('title', 'Profil Instansi & PPID')
+@section('title', 'Profil Instansi & Struktur Organisasi')
 
 @section('content')
-    <div style="margin-bottom: 2rem;">
-        <h1 style="font-size: 2rem; color: var(--gov-primary-dark); font-weight: 800; margin-bottom: 0.5rem;">Profil Instansi & Pejabat Pengelola Informasi (PPID)</h1>
-        <p style="color: var(--gov-text-muted);">Mengenal struktur, tugas fungsi, dan komitmen keterbukaan informasi publik instansi.</p>
+<div class="space-y-10">
+    <!-- Header Halaman Profil -->
+    <div class="border-b border-slate-200 pb-6">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+            Tentang Kami
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">
+            Profil Instansi & Pejabat Pengelola Informasi (PPID)
+        </h1>
+        <p class="text-sm sm:text-base text-slate-600 mt-2 max-w-3xl leading-relaxed">
+            Mengenal sejarah pendirian, visi misi, tugas pokok dan fungsi kedinasan, struktur organisasi, serta jajaran pimpinan yang mengabdi bagi masyarakat.
+        </p>
     </div>
 
-    <!-- Visi dan Misi -->
-    <div class="gov-card" style="margin-bottom: 2rem;">
-        <h2 style="font-size: 1.4rem; color: var(--gov-primary); margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;">Visi & Misi</h2>
-        <div style="margin-bottom: 1.5rem;">
-            <h3 style="font-size: 1.1rem; color: var(--gov-primary-dark); margin-bottom: 0.4rem;">Visi</h3>
-            <p style="font-style: italic; background: #f8fafc; padding: 1rem; border-left: 4px solid var(--gov-primary); border-radius: 0 6px 6px 0;">
-                "Terwujudnya Tata Kelola Pemerintahan Daerah yang Terbuka, Transparan, Akuntabel, dan Memberikan Pelayanan Prima kepada Seluruh Lapisan Masyarakat."
+    <!-- 1. Sejarah Singkat -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="heading-sejarah">
+        <h2 id="heading-sejarah" class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+            <span>📜</span> Sejarah Singkat Instansi
+        </h2>
+        <div class="prose prose-slate max-w-none text-sm text-slate-700 leading-relaxed space-y-3">
+            <p>
+                Dinas Komunikasi dan Informatika dibentuk berdasarkan Peraturan Daerah dalam rangka menjawab dinamika keterbukaan informasi dan percepatan transformasi tata kelola pemerintahan berbasis elektronik (SPBE). Sejak awal pendiriannya, instansi ini mengemban mandat sebagai garda terdepan diseminasi kebijakan pemerintah, pelayanan informasi publik, dan integrasi infrastruktur digital daerah.
+            </p>
+            <p>
+                Dengan berlakunya Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik, instansi ditetapkan sebagai Pejabat Pengelola Informasi dan Dokumentasi (PPID) Utama. Melalui peran ini, seluruh perangkat daerah dikoordinasikan untuk menjamin hak konstitusional setiap warga negara dalam memperoleh dokumen dan informasi yang akurat, benar, dan tidak menyesatkan.
             </p>
         </div>
+    </section>
+
+    <!-- 2. Visi dan Misi -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="heading-visi-misi">
+        <h2 id="heading-visi-misi" class="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-100 flex items-center gap-2">
+            <span>🎯</span> Visi & Misi
+        </h2>
+        
+        <div class="mb-6">
+            <h3 class="text-sm font-bold text-blue-900 uppercase tracking-wider mb-2">Visi</h3>
+            <div class="p-4 bg-gradient-to-r from-blue-50 to-slate-50 border-l-4 border-blue-900 rounded-r-xl">
+                <p class="text-base sm:text-lg font-bold text-slate-900 italic">
+                    "Terwujudnya Tata Kelola Pemerintahan Daerah yang Terbuka, Transparan, Akuntabel, dan Memberikan Pelayanan Prima kepada Seluruh Lapisan Masyarakat."
+                </p>
+            </div>
+        </div>
+
         <div>
-            <h3 style="font-size: 1.1rem; color: var(--gov-primary-dark); margin-bottom: 0.4rem;">Misi</h3>
-            <ol style="padding-left: 1.25rem; color: var(--gov-text-dark); line-height: 1.8;">
+            <h3 class="text-sm font-bold text-blue-900 uppercase tracking-wider mb-2">Misi</h3>
+            <ol class="space-y-2.5 text-sm text-slate-700 list-decimal list-inside leading-relaxed">
                 <li>Menjamin pemenuhan hak warga negara untuk memperoleh akses informasi publik secara cepat dan tepat waktu.</li>
-                <li>Meningkatkan kualitas pengelolaan serta pendokumentasian informasi publik yang akurat dan mudah diakses.</li>
-                <li>Mengembangkan sistem pelayanan informasi publik yang tertib dan berlandaskan pada prinsip tata kelola yang baik.</li>
-                <li>Mewujudkan transparansi kinerja dan pertanggungjawaban program kerja instansi kepada publik.</li>
+                <li>Meningkatkan kualitas tata kelola pendokumentasian dan pengarsipan informasi publik berbasis teknologi informasi.</li>
+                <li>Mewujudkan sistem pelayanan publik yang transparan, mudah, bebas diskriminasi, dan akuntabel.</li>
+                <li>Mendorong pengawasan dan partisipasi aktif publik dalam perumusan kebijakan serta evaluasi pembangunan daerah.</li>
             </ol>
         </div>
-    </div>
+    </section>
 
-    <!-- Tugas Pokok & Fungsi (Tupoksi) PPID -->
-    <div class="gov-card" style="margin-bottom: 2rem;">
-        <h2 style="font-size: 1.4rem; color: var(--gov-primary); margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;">Tugas & Fungsi PPID</h2>
-        <p style="margin-bottom: 1rem;">
-            Berdasarkan Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik, PPID bertugas mengoordinasikan pengumpulan, pendokumentasian, penyimpanan, dan pelayanan informasi publik di lingkungan badan publik.
+    <!-- 3. Tugas Pokok & Fungsi (Tupoksi) -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="heading-tupoksi">
+        <h2 id="heading-tupoksi" class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+            <span>⚖️</span> Tugas Pokok & Fungsi (Tupoksi) PPID
+        </h2>
+        <p class="text-sm text-slate-600 mb-6">
+            Sesuai UU No. 14 Tahun 2008 dan Peraturan Komisi Informasi, PPID mengemban tugas pokok dan fungsi sebagai berikut:
         </p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
-            <div style="background: #f8fafc; border: 1px solid var(--gov-border); border-radius: 8px; padding: 1.25rem;">
-                <h4 style="color: var(--gov-primary-dark); margin-bottom: 0.5rem;">Pengklasifikasian Informasi</h4>
-                <p style="font-size: 0.9rem; color: var(--gov-text-muted);">Mengelompokkan informasi publik menjadi kategori berkala, serta-merta, setiap saat, dan informasi yang dikecualikan sesuai pengujian konsekuensi.</p>
-            </div>
-            <div style="background: #f8fafc; border: 1px solid var(--gov-border); border-radius: 8px; padding: 1.25rem;">
-                <h4 style="color: var(--gov-primary-dark); margin-bottom: 0.5rem;">Pelayanan Permohonan</h4>
-                <p style="font-size: 0.9rem; color: var(--gov-text-muted);">Menerima, memproses, dan memberikan respon resmi atas permohonan informasi publik dari perseorangan maupun badan hukum.</p>
-            </div>
-            <div style="background: #f8fafc; border: 1px solid var(--gov-border); border-radius: 8px; padding: 1.25rem;">
-                <h4 style="color: var(--gov-primary-dark); margin-bottom: 0.5rem;">Penyelesaian Keberatan</h4>
-                <p style="font-size: 0.9rem; color: var(--gov-text-muted);">Mengoordinasikan penyelesaian pengajuan keberatan permohonan informasi bersama Atasan PPID sesuai prosedur hukum.</p>
-            </div>
-        </div>
-    </div>
 
-    <!-- Struktur Organisasi Standar -->
-    <div class="gov-card">
-        <h2 style="font-size: 1.4rem; color: var(--gov-primary); margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;">Bagan Struktur PPID Standar</h2>
-        <div style="background: #f8fafc; border: 1px dashed var(--gov-border); border-radius: 8px; padding: 2rem; text-align: center;">
-            <div style="display: inline-block; background: var(--gov-primary-dark); color: white; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 700; margin-bottom: 1.5rem;">
-                Atasan PPID (Sekretaris Daerah / Kepala Dinas)
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="text-2xl mb-2">📂</div>
+                <h3 class="text-sm font-bold text-slate-900 mb-2">Pengklasifikasian Informasi</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Menetapkan dan memutakhirkan Daftar Informasi Publik yang terdiri atas informasi berkala, serta-merta, dan setiap saat melalui pengujian konsekuensi yang sah.
+                </p>
             </div>
-            <div style="width: 2px; height: 24px; background: #94a3b8; margin: 0 auto;"></div>
-            <div style="display: inline-block; background: var(--gov-primary); color: white; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 700; margin-bottom: 1.5rem;">
-                Ketua PPID Utama
+
+            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="text-2xl mb-2">🤝</div>
+                <h3 class="text-sm font-bold text-slate-900 mb-2">Pelayanan Permohonan</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Menerima, memverifikasi, serta memproses permohonan informasi publik dari pemohon perseorangan maupun badan hukum secara tepat waktu.
+                </p>
             </div>
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;">
-                <div style="background: white; border: 1px solid var(--gov-border); padding: 0.75rem 1.25rem; border-radius: 6px; font-size: 0.9rem;">
-                    <strong>Bidang Pendokumentasian & Arsip</strong>
+
+            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="text-2xl mb-2">🛡️</div>
+                <h3 class="text-sm font-bold text-slate-900 mb-2">Penyelesaian Keberatan</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Mengoordinasikan penyusunan tanggapan tertulis atas pengajuan keberatan pemohon bersama Atasan PPID sesuai prosedur perundang-undangan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Struktur Organisasi -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="heading-struktur">
+        <h2 id="heading-struktur" class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+            <span>🏛️</span> Struktur Organisasi PPID
+        </h2>
+        <p class="text-sm text-slate-600 mb-6">
+            Bagan hierarki tata kelola Pejabat Pengelola Informasi dan Dokumentasi Utama di lingkungan pemerintah daerah:
+        </p>
+
+        <div class="p-6 rounded-xl bg-slate-50 border border-dashed border-slate-300 text-center space-y-4">
+            <div class="inline-block px-6 py-3 rounded-lg text-white font-bold text-sm shadow-sm" style="background-color: var(--gov-primary, #1e3a8a);">
+                Atasan PPID (Kepala Dinas / Sekretaris Daerah)
+            </div>
+            <div class="w-0.5 h-6 bg-slate-300 mx-auto"></div>
+            <div class="inline-block px-5 py-2.5 rounded-lg bg-slate-800 text-white font-semibold text-xs shadow-sm">
+                Ketua PPID Utama (Sekretaris Dinas)
+            </div>
+            <div class="w-0.5 h-6 bg-slate-300 mx-auto"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto pt-2">
+                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-xs">
+                    Bidang Pengolahan Data & Klasifikasi Dokumen
                 </div>
-                <div style="background: white; border: 1px solid var(--gov-border); padding: 0.75rem 1.25rem; border-radius: 6px; font-size: 0.9rem;">
-                    <strong>Bidang Pelayanan & Pengaduan</strong>
+                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-xs">
+                    Bidang Pelayanan & Meja Informasi
                 </div>
-                <div style="background: white; border: 1px solid var(--gov-border); padding: 0.75rem 1.25rem; border-radius: 6px; font-size: 0.9rem;">
-                    <strong>Bidang Advokasi & Sengketa</strong>
+                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-xs">
+                    Bidang Advokasi Hukum & Sengketa Informasi
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- 5. Profil Pejabat Struktural -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="heading-pejabat">
+        <h2 id="heading-pejabat" class="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-100 flex items-center gap-2">
+            <span>👥</span> Profil Pejabat Struktural
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            @foreach($pejabat as $p)
+                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 flex items-start gap-4 hover:bg-white hover:shadow-sm transition-all">
+                    <div class="w-14 h-14 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-xl shrink-0 shadow-sm">
+                        {{ substr($p['nama'], 0, 1) }}
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-sm font-bold text-slate-900 leading-snug">{{ $p['nama'] }}</h3>
+                        <p class="text-xs font-semibold text-blue-800 mt-0.5">{{ $p['jabatan'] }}</p>
+                        <p class="text-[11px] text-slate-500 mt-1">NIP: {{ $p['nip'] }}</p>
+                        <p class="text-[11px] text-slate-600 mt-0.5">🎓 {{ $p['pendidikan'] }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+</div>
 @endsection

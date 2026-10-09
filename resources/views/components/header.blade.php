@@ -71,45 +71,51 @@
             <ul class="flex items-center gap-1 text-sm font-medium text-white">
                 <li>
                     <a href="{{ route('home') }}" 
-                       class="inline-block px-4 py-3 border-b-2 {{ request()->routeIs('home') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
+                       class="inline-block px-3 py-3 border-b-2 {{ request()->routeIs('home') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
                         Beranda
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('profil') }}" 
-                       class="inline-block px-4 py-3 border-b-2 {{ request()->routeIs('profil') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
-                        Profil Instansi
+                       class="inline-block px-3 py-3 border-b-2 {{ request()->routeIs('profil') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
+                        Profil
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('home') }}#layanan" 
-                       class="inline-block px-4 py-3 border-b-2 border-transparent hover:bg-white/10 transition-colors">
+                    <a href="{{ route('layanan') }}" 
+                       class="inline-block px-3 py-3 border-b-2 {{ request()->routeIs('layanan') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
                         Layanan Publik
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('home') }}#berita" 
-                       class="inline-block px-4 py-3 border-b-2 border-transparent hover:bg-white/10 transition-colors">
-                        Berita & Pengumuman
+                    <a href="{{ route('berita.index') }}" 
+                       class="inline-block px-3 py-3 border-b-2 {{ request()->routeIs('berita.*') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
+                        Berita
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('komponen') }}" 
-                       class="inline-block px-4 py-3 border-b-2 {{ request()->routeIs('komponen') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
-                        Komponen UI
+                    <a href="{{ route('publikasi') }}" 
+                       class="inline-block px-3 py-3 border-b-2 {{ request()->routeIs('publikasi') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
+                        Publikasi Dokumen
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('galeri') }}" 
+                       class="inline-block px-3 py-3 border-b-2 {{ request()->routeIs('galeri') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
+                        Galeri
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('kontak') }}" 
-                       class="inline-block px-4 py-3 border-b-2 {{ request()->routeIs('kontak') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
-                        Kontak Kami
+                       class="inline-block px-3 py-3 border-b-2 {{ request()->routeIs('kontak') ? 'border-amber-400 font-semibold bg-white/10' : 'border-transparent hover:bg-white/10' }} transition-colors">
+                        Kontak & Pengaduan
                     </a>
                 </li>
             </ul>
 
             <div>
                 <a href="{{ route('home') }}#ppid" 
-                   class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white rounded-md shadow-sm transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white rounded-md shadow-sm transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                    style="background-color: var(--gov-secondary, #b91c1c);">
                     📋 Layanan PPID
                 </a>
@@ -126,12 +132,12 @@
         
         <!-- Formulir Pencarian Mobile -->
         <div class="p-4 border-b border-slate-100 bg-slate-50">
-            <form action="{{ route('home') }}#berita" method="GET" role="search" class="relative">
-                <label for="mobile-search-input" class="sr-only">Cari informasi publik</label>
+            <form action="{{ route('berita.index') }}" method="GET" role="search" class="relative">
+                <label for="mobile-search-input" class="sr-only">Cari berita atau dokumen publik</label>
                 <input type="search" 
                        id="mobile-search-input"
                        name="q" 
-                       placeholder="Cari informasi publik..." 
+                       placeholder="Cari berita atau dokumen..." 
                        class="w-full pl-9 pr-4 py-2 text-sm rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600">
                 <span class="absolute left-3 top-2.5 text-slate-400 text-sm" aria-hidden="true">🔍</span>
             </form>
@@ -153,17 +159,38 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('home') }}#layanan" 
+                <a href="{{ route('layanan') }}" 
                    @click="mobileOpen = false"
-                   class="block px-3 py-2 rounded-lg hover:bg-slate-100">
+                   class="block px-3 py-2 rounded-lg {{ request()->routeIs('layanan') ? 'bg-blue-50 text-blue-900 font-bold' : 'hover:bg-slate-100' }}">
                     🛠️ Layanan Publik
                 </a>
             </li>
             <li>
-                <a href="{{ route('home') }}#berita" 
+                <a href="{{ route('berita.index') }}" 
                    @click="mobileOpen = false"
-                   class="block px-3 py-2 rounded-lg hover:bg-slate-100">
-                    📰 Berita & Pengumuman
+                   class="block px-3 py-2 rounded-lg {{ request()->routeIs('berita.*') ? 'bg-blue-50 text-blue-900 font-bold' : 'hover:bg-slate-100' }}">
+                    📰 Berita Terkini
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('publikasi') }}" 
+                   @click="mobileOpen = false"
+                   class="block px-3 py-2 rounded-lg {{ request()->routeIs('publikasi') ? 'bg-blue-50 text-blue-900 font-bold' : 'hover:bg-slate-100' }}">
+                    📚 Publikasi & Dokumen
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('galeri') }}" 
+                   @click="mobileOpen = false"
+                   class="block px-3 py-2 rounded-lg {{ request()->routeIs('galeri') ? 'bg-blue-50 text-blue-900 font-bold' : 'hover:bg-slate-100' }}">
+                    📷 Galeri Foto
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('kontak') }}" 
+                   @click="mobileOpen = false"
+                   class="block px-3 py-2 rounded-lg {{ request()->routeIs('kontak') ? 'bg-blue-50 text-blue-900 font-bold' : 'hover:bg-slate-100' }}">
+                    📞 Kontak & Pengaduan
                 </a>
             </li>
             <li>
@@ -171,13 +198,6 @@
                    @click="mobileOpen = false"
                    class="block px-3 py-2 rounded-lg {{ request()->routeIs('komponen') ? 'bg-blue-50 text-blue-900 font-bold' : 'hover:bg-slate-100' }}">
                     🧩 Komponen UI
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('kontak') }}" 
-                   @click="mobileOpen = false"
-                   class="block px-3 py-2 rounded-lg {{ request()->routeIs('kontak') ? 'bg-blue-50 text-blue-900 font-bold' : 'hover:bg-slate-100' }}">
-                    📞 Kontak Kami
                 </a>
             </li>
             <li class="pt-2 border-t border-slate-100">

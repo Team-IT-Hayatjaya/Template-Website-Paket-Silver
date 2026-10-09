@@ -14,10 +14,18 @@ use Illuminate\Support\Facades\Route;
 | Semua antarmuka berbahasa Indonesia
 */
 
-// Rute Publik Standar
+// Rute Publik Standar (Paket Silver)
 Route::get('/', [PublicPageController::class, 'home'])->name('home');
 Route::get('/profil', [PublicPageController::class, 'profil'])->name('profil');
+Route::get('/berita', [PublicPageController::class, 'berita'])->name('berita.index');
+Route::get('/berita/{slug}', [PublicPageController::class, 'detailBerita'])->name('berita.detail');
+Route::get('/galeri', [PublicPageController::class, 'galeri'])->name('galeri');
+Route::get('/layanan', [PublicPageController::class, 'layanan'])->name('layanan');
+Route::get('/publikasi', [PublicPageController::class, 'publikasi'])->name('publikasi');
 Route::get('/kontak', [PublicPageController::class, 'kontak'])->name('kontak');
+Route::post('/kontak', [PublicPageController::class, 'kirimPengaduan'])
+    ->middleware('throttle:10,1')
+    ->name('kontak.kirim');
 Route::get('/komponen', [PublicPageController::class, 'komponen'])->name('komponen');
 
 // Autentikasi Panel Admin
