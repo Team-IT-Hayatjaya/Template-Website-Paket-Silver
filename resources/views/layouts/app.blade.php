@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Beranda') - {{ config('app.name', 'Portal Resmi Instansi Pemerintah') }}</title>
+    <title>@yield('title', 'Beranda') - {{ $pengaturan->nama_instansi ?? config('app.name') }}</title>
     <meta name="description" content="@yield('meta_description', 'Portal Resmi Instansi Pemerintah Republik Indonesia - Layanan Publik dan Keterbukaan Informasi Publik (PPID) sesuai UU No. 14 Tahun 2008.')">
     
     <!-- CSS Sistem Desain Instansi -->
     <link rel="stylesheet" href="{{ asset('css/instansi.css') }}">
+    
+    <!-- Injeksi Tema Dinamis (Variabel Warna & Favicon) -->
+    <x-theme-styles />
+    
     @stack('styles')
 </head>
 <body>
@@ -16,12 +20,12 @@
     <div class="gov-topbar">
         <div class="gov-topbar-content">
             <div>
-                <span>🇮🇩 Portal Resmi Pemerintah Daerah / Badan Publik</span>
+                <span>🇮🇩 Portal Resmi {{ $pengaturan->nama_instansi ?? 'Pemerintah Daerah' }}</span>
                 <span style="margin: 0 8px; opacity: 0.5;">|</span>
                 <span>Standar Keterbukaan Informasi UU No. 14/2008</span>
             </div>
             <div>
-                <span>Pelayanan: Senin - Jumat (08.00 - 15.30 WIB)</span>
+                <span>Pelayanan: {{ $pengaturan->jam_layanan ? Str::limit($pengaturan->jam_layanan, 45) : 'Senin - Jumat (08.00 - 15.30 WIB)' }}</span>
             </div>
         </div>
     </div>
@@ -30,12 +34,10 @@
     <header class="gov-header">
         <div class="gov-header-inner">
             <a href="{{ route('home') }}" class="gov-brand" id="brand-link">
-                <div class="gov-logo-badge">
-                    <span>RI</span>
-                </div>
+                <x-logo />
                 <div class="gov-brand-text">
-                    <h1>PEMERINTAH KABUPATEN / KOTA</h1>
-                    <p>DINAS KOMUNIKASI DAN INFORMATIKA &bull; PEJABAT PENGELOLA INFORMASI DAN DOKUMENTASI (PPID)</p>
+                    <h1>{{ $pengaturan->nama_instansi ?? 'PEMERINTAH KABUPATEN / KOTA' }}</h1>
+                    <p>{{ $pengaturan->sub_nama_instansi ?? 'DINAS KOMUNIKASI DAN INFORMATIKA' }} &bull; {{ $pengaturan->nama_ppid ?? 'PPID UTAMA' }}</p>
                 </div>
             </a>
             <div>
@@ -91,13 +93,16 @@
     <footer class="gov-footer">
         <div class="gov-footer-inner">
             <div>
-                <h4>DINAS KOMUNIKASI & INFORMATIKA</h4>
-                <p>Pejabat Pengelola Informasi dan Dokumentasi (PPID) Utama Pemerintah Daerah.</p>
-                <p style="margin-top: 0.5rem;">
-                    Gedung Sekretariat Daerah Lt. 2<br>
-                    Jl. Pahlawan No. 45, Kompleks Perkantoran Pemerintah<br>
-                    Telepon: (021) 1234-5678<br>
-                    Email: ppid@instansi.go.id
+                <h4>{{ $pengaturan->sub_nama_instansi ?? 'DINAS KOMUNIKASI & INFORMATIKA' }}</h4>
+                <p>{{ $pengaturan->nama_ppid ?? 'Pejabat Pengelola Informasi dan Dokumentasi (PPID) Utama' }}.</p>
+                <p style="margin-top: 0.5rem; white-space: pre-line;">
+                    {{ $pengaturan->alamat ?? 'Gedung Sekretariat Daerah Lt. 2, Jl. Pahlawan No. 45' }}
+                    @if($pengaturan?->telepon)
+                        <br>Telepon: {{ $pengaturan->telepon }}
+                    @endif
+                    @if($pengaturan?->email)
+                        <br>Email: {{ $pengaturan->email }}
+                    @endif
                 </p>
             </div>
             <div>
@@ -111,15 +116,16 @@
             </div>
             <div>
                 <h4>JAM LAYANAN PPID</h4>
-                <p>
-                    <strong>Senin - Kamis:</strong><br> 08.00 - 15.30 WIB<br>
-                    <strong>Jumat:</strong><br> 08.00 - 15.00 WIB<br>
+                <p style="white-space: pre-line;">
+                    {{ $pengaturan->jam_layanan ?? "Senin - Kamis: 08.00 - 15.30 WIB\nJumat: 08.00 - 15.00 WIB" }}
+                </p>
+                <p style="margin-top: 0.5rem;">
                     <small>Sabtu, Minggu, dan Hari Libur Nasional tutup.</small>
                 </p>
             </div>
         </div>
         <div class="gov-footer-bottom">
-            <p>&copy; {{ date('Y') }} Portal Resmi Pemerintah Daerah. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p>&copy; {{ date('Y') }} {{ $pengaturan->nama_instansi ?? 'Portal Resmi Pemerintah Daerah' }}. Hak Cipta Dilindungi Undang-Undang.</p>
             <p style="margin-top: 0.25rem;">Dikembangkan oleh <strong>PT Hayat Jaya Teknologi (HJT)</strong> &bull; Paket SILVER</p>
         </div>
     </footer>

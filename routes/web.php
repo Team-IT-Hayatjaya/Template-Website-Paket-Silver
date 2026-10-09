@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\PengaturanController as AdminPengaturanController;
 use App\Http\Controllers\PublicPageController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,5 +31,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
         Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+        // Pengaturan PPID & Tema Dinamis
+        Route::get('/pengaturan', [AdminPengaturanController::class, 'edit'])->name('pengaturan.edit');
+        Route::put('/pengaturan', [AdminPengaturanController::class, 'update'])->name('pengaturan.update');
     });
 });

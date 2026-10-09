@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Dasbor') - Panel Administrasi PPID</title>
     <link rel="stylesheet" href="{{ asset('css/instansi.css') }}">
+    <x-theme-styles />
     @stack('styles')
 </head>
 <body>
@@ -32,6 +33,9 @@
                 </a>
                 <a href="#berita" id="nav-admin-berita">
                     📰 Berita & Pengumuman
+                </a>
+                <a href="{{ route('admin.pengaturan.edit') }}" class="{{ request()->routeIs('admin.pengaturan.*') ? 'active' : '' }}" id="nav-admin-pengaturan">
+                    ⚙️ Pengaturan & Tema Instansi
                 </a>
                 <a href="#backup" id="nav-admin-backup">
                     💾 Cadangan Data (Backup)
