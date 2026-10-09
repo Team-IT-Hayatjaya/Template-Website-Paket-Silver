@@ -95,31 +95,31 @@
     </section>
 
     <!-- 4. Struktur Organisasi -->
-    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="heading-struktur">
-        <h2 id="heading-struktur" class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+    <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 md:p-8 shadow-sm" aria-labelledby="heading-struktur">
+        <h2 id="heading-struktur" class="text-lg sm:text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
             <span>🏛️</span> Struktur Organisasi PPID
         </h2>
-        <p class="text-sm text-slate-600 mb-6">
+        <p class="text-xs sm:text-sm text-slate-600 mb-6">
             Bagan hierarki tata kelola Pejabat Pengelola Informasi dan Dokumentasi Utama di lingkungan pemerintah daerah:
         </p>
 
-        <div class="p-6 rounded-xl bg-slate-50 border border-dashed border-slate-300 text-center space-y-4">
-            <div class="inline-block px-6 py-3 rounded-lg text-white font-bold text-sm shadow-sm" style="background-color: var(--gov-primary, #1e3a8a);">
+        <div class="p-4 sm:p-6 rounded-xl bg-slate-50 border border-dashed border-slate-300 text-center space-y-4">
+            <div class="inline-block max-w-full px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-white font-bold text-xs sm:text-sm shadow-sm break-words" style="background-color: var(--gov-primary, #1e3a8a);">
                 Atasan PPID (Kepala Dinas / Sekretaris Daerah)
             </div>
-            <div class="w-0.5 h-6 bg-slate-300 mx-auto"></div>
-            <div class="inline-block px-5 py-2.5 rounded-lg bg-slate-800 text-white font-semibold text-xs shadow-sm">
+            <div class="w-0.5 h-5 sm:h-6 bg-slate-300 mx-auto"></div>
+            <div class="inline-block max-w-full px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-slate-800 text-white font-semibold text-xs shadow-sm break-words">
                 Ketua PPID Utama (Sekretaris Dinas)
             </div>
-            <div class="w-0.5 h-6 bg-slate-300 mx-auto"></div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto pt-2">
-                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-xs">
+            <div class="w-0.5 h-5 sm:h-6 bg-slate-300 mx-auto"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto pt-2">
+                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-2xs">
                     Bidang Pengolahan Data & Klasifikasi Dokumen
                 </div>
-                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-xs">
+                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-2xs">
                     Bidang Pelayanan & Meja Informasi
                 </div>
-                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-xs">
+                <div class="p-3 bg-white rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 shadow-2xs">
                     Bidang Advokasi Hukum & Sengketa Informasi
                 </div>
             </div>
@@ -127,19 +127,19 @@
     </section>
 
     <!-- 5. Profil Pejabat Struktural -->
-    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm" aria-labelledby="heading-pejabat">
-        <h2 id="heading-pejabat" class="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-100 flex items-center gap-2">
+    <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 md:p-8 shadow-sm" aria-labelledby="heading-pejabat">
+        <h2 id="heading-pejabat" class="text-lg sm:text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-100 flex items-center gap-2">
             <span>👥</span> Profil Pejabat Struktural
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             @foreach($pejabat as $p)
-                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 flex items-start gap-4 hover:bg-white hover:shadow-sm transition-all">
-                    <div class="w-14 h-14 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-xl shrink-0 shadow-sm">
+                <div class="p-4 sm:p-5 rounded-xl border border-slate-200 bg-slate-50/50 flex items-start gap-3.5 sm:gap-4 hover:bg-white hover:shadow-sm transition-all">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-lg sm:text-xl shrink-0 shadow-sm">
                         {{ substr($p['nama'], 0, 1) }}
                     </div>
-                    <div class="flex-1">
-                        <h3 class="text-sm font-bold text-slate-900 leading-snug">{{ $p['nama'] }}</h3>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-sm font-bold text-slate-900 leading-snug truncate">{{ $p['nama'] }}</h3>
                         <p class="text-xs font-semibold text-blue-800 mt-0.5">{{ $p['jabatan'] }}</p>
                         <p class="text-[11px] text-slate-500 mt-1">NIP: {{ $p['nip'] }}</p>
                         <p class="text-[11px] text-slate-600 mt-0.5">🎓 {{ $p['pendidikan'] }}</p>

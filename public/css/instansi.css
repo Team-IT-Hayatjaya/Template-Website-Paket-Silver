@@ -21,6 +21,19 @@
   --gov-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -32,6 +45,7 @@ body {
   background-color: var(--gov-bg);
   color: var(--gov-text-dark);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Topbar Instansi */
@@ -256,7 +270,7 @@ body {
 /* Grid & Cards */
 .grid-cols-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
@@ -485,11 +499,16 @@ body {
   flex: 1;
 }
 
-/* Responsif Mobile */
+/* Responsif Multi-Platform (Tablet & Ponsel) */
 @media (max-width: 768px) {
+  .gov-container {
+    padding: 0 0.75rem;
+    margin: 1.25rem auto;
+  }
   .gov-header-inner {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
   }
   .gov-nav {
     flex-direction: column;
@@ -499,8 +518,23 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
+  .gov-hero {
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.75rem;
+    border-radius: 12px;
+  }
   .gov-hero h2 {
     font-size: 1.6rem;
+  }
+  .gov-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .gov-hero-actions .btn {
+    width: 100%;
+  }
+  .gov-card {
+    padding: 1.25rem;
   }
   .admin-layout {
     flex-direction: column;
@@ -508,4 +542,35 @@ body {
   .admin-sidebar {
     width: 100%;
   }
+  .admin-topbar {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .admin-content {
+    padding: 1.25rem 1rem;
+  }
 }
+
+@media (max-width: 480px) {
+  .gov-topbar-content {
+    justify-content: center;
+    text-align: center;
+    font-size: 0.775rem;
+  }
+  .gov-hero {
+    padding: 1.5rem 1rem;
+  }
+  .gov-hero h2 {
+    font-size: 1.35rem;
+  }
+  .gov-hero p {
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+}
+

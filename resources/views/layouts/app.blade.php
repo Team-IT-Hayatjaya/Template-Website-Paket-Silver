@@ -18,12 +18,16 @@
     @stack('styles')
 </head>
 <body class="flex flex-col min-h-full font-sans antialiased text-slate-800 bg-slate-50">
+    <!-- Aksesibilitas: Tautan Lompat ke Konten Utama -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-900 focus:text-white focus:rounded-lg focus:shadow-xl focus:text-sm focus:font-semibold">
+        Lompat ke Konten Utama &darr;
+    </a>
 
     <!-- Header Instansi Modular (Logo, Menu, Pencarian & Mobile Drawer Alpine.js) -->
     <x-header />
 
     <!-- Konten Utama Semantik -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8" id="main-content">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-6 sm:py-8" id="main-content">
         @if(session('success'))
             <x-alert type="success" title="Berhasil" dismissible="true" class="mb-6">
                 {{ session('success') }}

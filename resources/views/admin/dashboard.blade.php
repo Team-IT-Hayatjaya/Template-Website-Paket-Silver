@@ -5,92 +5,90 @@
 
 @section('content')
     <!-- Kartu Statistik Utama -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
-        
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8">
         <!-- Total Permohonan -->
-        <div style="background: white; border: 1px solid var(--gov-border); border-radius: 12px; padding: 1.5rem; box-shadow: var(--gov-shadow);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                <span style="font-size: 0.85rem; color: var(--gov-text-muted); font-weight: 600; text-transform: uppercase;">Permohonan Informasi</span>
-                <span style="font-size: 1.3rem;">📥</span>
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Permohonan Informasi</span>
+                <span class="text-xl" aria-hidden="true">📥</span>
             </div>
-            <div style="font-size: 2rem; font-weight: 800; color: var(--gov-primary-dark);" id="stat-total-permohonan">
+            <div class="text-3xl font-extrabold text-blue-950" id="stat-total-permohonan">
                 {{ $stats['total_permohonan'] }}
             </div>
-            <div style="font-size: 0.8rem; color: #10b981; margin-top: 0.25rem;">
+            <div class="text-xs text-emerald-600 font-medium mt-1">
                 Menunggu respon PPID
             </div>
         </div>
 
         <!-- Total Keberatan -->
-        <div style="background: white; border: 1px solid var(--gov-border); border-radius: 12px; padding: 1.5rem; box-shadow: var(--gov-shadow);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                <span style="font-size: 0.85rem; color: var(--gov-text-muted); font-weight: 600; text-transform: uppercase;">Pengajuan Keberatan</span>
-                <span style="font-size: 1.3rem;">⚖️</span>
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Pengajuan Keberatan</span>
+                <span class="text-xl" aria-hidden="true">⚖️</span>
             </div>
-            <div style="font-size: 2rem; font-weight: 800; color: var(--gov-red);" id="stat-total-keberatan">
+            <div class="text-3xl font-extrabold text-red-700" id="stat-total-keberatan">
                 {{ $stats['total_keberatan'] }}
             </div>
-            <div style="font-size: 0.8rem; color: var(--gov-text-muted); margin-top: 0.25rem;">
+            <div class="text-xs text-slate-500 font-medium mt-1">
                 Sengketa / tanggapan
             </div>
         </div>
 
         <!-- Total DIP -->
-        <div style="background: white; border: 1px solid var(--gov-border); border-radius: 12px; padding: 1.5rem; box-shadow: var(--gov-shadow);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                <span style="font-size: 0.85rem; color: var(--gov-text-muted); font-weight: 600; text-transform: uppercase;">Katalog DIP Aktif</span>
-                <span style="font-size: 1.3rem;">📚</span>
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Katalog DIP Aktif</span>
+                <span class="text-xl" aria-hidden="true">📚</span>
             </div>
-            <div style="font-size: 2rem; font-weight: 800; color: var(--gov-gold);" id="stat-total-dip">
+            <div class="text-3xl font-extrabold text-amber-600" id="stat-total-dip">
                 {{ $stats['total_dip'] }}
             </div>
-            <div style="font-size: 0.8rem; color: var(--gov-text-muted); margin-top: 0.25rem;">
+            <div class="text-xs text-slate-500 font-medium mt-1">
                 Informasi berkala & setiap saat
             </div>
         </div>
 
         <!-- Status Backup & Cron -->
-        <div style="background: white; border: 1px solid var(--gov-border); border-radius: 12px; padding: 1.5rem; box-shadow: var(--gov-shadow);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                <span style="font-size: 0.85rem; color: var(--gov-text-muted); font-weight: 600; text-transform: uppercase;">Cadangan Bulanan</span>
-                <span style="font-size: 1.3rem;">💾</span>
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Cadangan Bulanan</span>
+                <span class="text-xl" aria-hidden="true">💾</span>
             </div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: #10b981; margin: 0.4rem 0;" id="stat-status-backup">
+            <div class="text-xl font-bold text-emerald-600 my-1" id="stat-status-backup">
                 Siap (Cron Aktif)
             </div>
-            <div style="font-size: 0.8rem; color: var(--gov-text-muted);">
-                Tugas: <code>schedule:run</code>
+            <div class="text-xs text-slate-500">
+                Tugas: <code class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-mono text-[11px]">schedule:run</code>
             </div>
         </div>
-
     </div>
 
     <!-- Informasi Konfigurasi Lingkungan (Paket Silver) -->
-    <div style="background: white; border: 1px solid var(--gov-border); border-radius: 12px; padding: 1.75rem; box-shadow: var(--gov-shadow); margin-bottom: 2rem;">
-        <h4 style="font-size: 1.15rem; color: var(--gov-primary-dark); margin-bottom: 0.75rem;">Status Spesifikasi Sistem (Paket Silver)</h4>
-        <p style="color: var(--gov-text-muted); font-size: 0.925rem; margin-bottom: 1.25rem;">
+    <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-7 shadow-sm">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Status Spesifikasi Sistem (Paket Silver)</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mb-5 leading-relaxed">
             Konfigurasi sistem disesuaikan untuk efisiensi cloud hosting standar / VPS kecil tanpa ketergantungan layanan berat eksternal (Redis / Docker).
         </p>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
-            <div style="background: #f8fafc; border: 1px solid var(--gov-border); border-radius: 8px; padding: 1rem;">
-                <span style="font-size: 0.8rem; color: var(--gov-text-muted); display: block;">Modul PPID Regulasi:</span>
-                <strong style="color: var(--gov-primary-dark);">UU No. 14 Tahun 2008</strong>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                <span class="text-xs text-slate-500 block">Modul PPID Regulasi:</span>
+                <strong class="text-sm text-slate-900 font-bold block mt-0.5">UU No. 14 Tahun 2008</strong>
             </div>
 
-            <div style="background: #f8fafc; border: 1px solid var(--gov-border); border-radius: 8px; padding: 1rem;">
-                <span style="font-size: 0.8rem; color: var(--gov-text-muted); display: block;">Driver Antrean (Queue):</span>
-                <strong style="color: var(--gov-primary-dark);">Database / Sync</strong>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                <span class="text-xs text-slate-500 block">Driver Antrean (Queue):</span>
+                <strong class="text-sm text-slate-900 font-bold block mt-0.5">Database / Sync</strong>
             </div>
 
-            <div style="background: #f8fafc; border: 1px solid var(--gov-border); border-radius: 8px; padding: 1rem;">
-                <span style="font-size: 0.8rem; color: var(--gov-text-muted); display: block;">Penyedia Pengembang:</span>
-                <strong style="color: var(--gov-primary-dark);">PT Hayat Jaya Teknologi (HJT)</strong>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                <span class="text-xs text-slate-500 block">Penyedia Pengembang:</span>
+                <strong class="text-sm text-slate-900 font-bold block mt-0.5">PT Hayat Jaya Teknologi (HJT)</strong>
             </div>
 
-            <div style="background: #f8fafc; border: 1px solid var(--gov-border); border-radius: 8px; padding: 1rem;">
-                <span style="font-size: 0.8rem; color: var(--gov-text-muted); display: block;">Tingkat Layanan:</span>
-                <strong style="color: #b45309;">SILVER</strong>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                <span class="text-xs text-slate-500 block">Tingkat Layanan:</span>
+                <strong class="text-sm text-amber-700 font-bold block mt-0.5">SILVER</strong>
             </div>
         </div>
     </div>

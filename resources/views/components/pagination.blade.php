@@ -13,14 +13,19 @@
     <div class="flex flex-1 justify-between sm:justify-end gap-2">
         @if($currentPage > 1)
             <a href="{{ $baseUrl }}?page={{ $currentPage - 1 }}" 
-               class="relative inline-flex items-center rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600">
+               class="relative inline-flex items-center rounded-md border border-slate-300 bg-white px-3 py-2 text-xs sm:text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600">
                 &larr; Sebelumnya
             </a>
         @else
-            <span class="relative inline-flex items-center rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-400 cursor-not-allowed">
+            <span class="relative inline-flex items-center rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-xs sm:text-sm font-medium text-slate-400 cursor-not-allowed">
                 &larr; Sebelumnya
             </span>
         @endif
+
+        <!-- Indikator Halaman Mobile -->
+        <div class="sm:hidden flex items-center text-xs font-bold text-slate-700 px-2">
+            {{ $currentPage }} / {{ $totalPages }}
+        </div>
 
         <div class="hidden md:flex gap-1">
             @for($i = 1; $i <= $totalPages; $i++)

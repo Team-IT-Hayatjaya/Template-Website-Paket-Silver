@@ -32,7 +32,7 @@
     </div>
 
     <!-- Filter Tab Kategori -->
-    <div class="flex flex-wrap items-center gap-2 border-b border-slate-200 pb-4">
+    <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 border-b border-slate-200 pb-3 sm:pb-4">
         <a href="{{ route('berita.index') }}" 
            class="px-3.5 py-1.5 rounded-lg text-xs font-semibold {{ empty($kategori) ? 'bg-blue-900 text-white shadow-xs' : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-50' }} transition-colors">
             Semua Berita
@@ -47,7 +47,7 @@
 
     <!-- Grid Berita -->
     @if(count($daftarBerita) > 0)
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             @foreach($daftarBerita as $item)
                 <x-news-card 
                     :title="$item['judul']"

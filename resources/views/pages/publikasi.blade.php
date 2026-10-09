@@ -20,7 +20,7 @@
     </div>
 
     <!-- Filter Kategori Dokumen -->
-    <div class="flex flex-wrap items-center gap-2 border-b border-slate-200 pb-4">
+    <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 border-b border-slate-200 pb-3 sm:pb-4">
         <a href="{{ route('publikasi') }}" 
            class="px-3.5 py-1.5 rounded-lg text-xs font-semibold {{ empty($kategori) ? 'bg-blue-900 text-white shadow-xs' : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-50' }} transition-colors">
             Semua Dokumen

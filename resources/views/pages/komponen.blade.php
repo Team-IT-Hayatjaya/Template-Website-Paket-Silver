@@ -149,7 +149,7 @@
             Tata letak kisi (grid) responsif: 1 kolom di ponsel (360px), 2 kolom di tablet (768px), dan 3 kolom di desktop (1280px). Mendukung gambar WebP dan lazy-loading.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <x-news-card 
                 title="Pemerintah Luncurkan Portal Keterbukaan Informasi Publik Terpadu"
                 date="09 Oktober 2026"

@@ -16,16 +16,16 @@
     </nav>
 
     <!-- Artikel Utama -->
-    <article class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm">
-        <header class="mb-6 pb-6 border-b border-slate-100">
+    <article class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 md:p-10 shadow-sm">
+        <header class="mb-5 sm:mb-6 pb-5 sm:pb-6 border-b border-slate-100">
             <span class="inline-block px-3 py-1 rounded-md text-xs font-semibold text-white mb-3"
                   style="background-color: var(--gov-primary, #1e3a8a);">
                 {{ $berita['kategori'] }}
             </span>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+            <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
                 {{ $berita['judul'] }}
             </h1>
-            <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 mt-4">
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-slate-500 mt-4">
                 <span class="flex items-center gap-1.5 font-medium">
                     <span>📅</span> {{ $berita['tanggal'] }}
                 </span>
@@ -36,7 +36,7 @@
         </header>
 
         <!-- Ringkasan / Lead Paragraph -->
-        <p class="text-base sm:text-lg font-medium text-slate-700 leading-relaxed italic mb-6 p-4 bg-slate-50 rounded-xl border-l-4 border-blue-900">
+        <p class="text-sm sm:text-base md:text-lg font-medium text-slate-700 leading-relaxed italic mb-6 p-3.5 sm:p-4 bg-slate-50 rounded-xl border-l-4 border-blue-900">
             {{ $berita['ringkasan'] }}
         </p>
 
@@ -50,8 +50,8 @@
             </p>
         </div>
 
-        <footer class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
-            <a href="{{ route('berita.index') }}" class="btn btn-light text-xs">
+        <footer class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <a href="{{ route('berita.index') }}" class="btn btn-light w-full sm:w-auto text-center text-xs">
                 &larr; Kembali ke Daftar Berita
             </a>
             <span class="text-xs text-slate-400">Portal Resmi Pemerintah Daerah &bull; Paket Silver</span>
@@ -60,17 +60,17 @@
 
     <!-- Berita Terkait -->
     @if(!empty($beritaTerkait))
-        <section class="mt-10" aria-labelledby="heading-terkait">
-            <h2 id="heading-terkait" class="text-lg font-bold text-slate-900 mb-4">
+        <section class="mt-8 sm:mt-10" aria-labelledby="heading-terkait">
+            <h2 id="heading-terkait" class="text-base sm:text-lg font-bold text-slate-900 mb-4">
                 Berita dan Informasi Terkait
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
                 @foreach($beritaTerkait as $rel)
                     @if($rel['slug'] !== $berita['slug'])
                         <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-2xs hover:shadow-sm transition-all flex flex-col justify-between">
                             <div>
                                 <span class="text-[10px] font-bold text-blue-700 block mb-1">{{ $rel['tanggal'] }}</span>
-                                <h3 class="text-xs font-bold text-slate-900 line-clamp-2 hover:text-blue-900">
+                                <h3 class="text-xs font-bold text-slate-900 line-clamp-2 hover:text-blue-900 leading-snug">
                                     <a href="{{ route('berita.detail', $rel['slug']) }}">{{ $rel['judul'] }}</a>
                                 </h3>
                             </div>

@@ -4,8 +4,14 @@
 ])
 
 <div class="w-full bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+    <!-- Indikator Geser Layar Sentuh Mobile -->
+    <div class="sm:hidden flex items-center gap-1.5 px-3.5 py-2 bg-blue-50/70 border-b border-blue-100 text-[11px] text-blue-900 font-medium select-none">
+        <span aria-hidden="true">↔️</span>
+        <span>Geser tabel ke samping untuk melihat rincian dokumen & tombol unduh</span>
+    </div>
+
     <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm text-slate-700 divide-y divide-slate-200">
+        <table class="w-full min-w-[640px] text-left text-sm text-slate-700 divide-y divide-slate-200">
             <caption class="sr-only">{{ $caption }}</caption>
             <thead class="bg-slate-50 text-xs font-semibold text-slate-700 uppercase tracking-wider">
                 <tr>

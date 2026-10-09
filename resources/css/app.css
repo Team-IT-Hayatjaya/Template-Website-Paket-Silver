@@ -19,7 +19,24 @@
     outline-offset: 2px !important;
 }
 
-/* Transisi Halus */
-a, button, input, select, textarea {
+/* Alpine Cloak - Mencegah Kedip Elemen Sebelum Alpine.js Selesai Inisialisasi */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Pengendalian Tata Letak Responsif & Pencegahan Overflow Layar Kecil */
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+/* Optimasi Sentuhan Ponsel (Touch Action & Transisi) */
+button, a, input, select, textarea {
+    touch-action: manipulation;
     transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
+

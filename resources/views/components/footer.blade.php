@@ -1,15 +1,15 @@
 <footer class="bg-slate-900 text-slate-300 pt-12 pb-8 border-t-4" style="border-top-color: var(--gov-secondary, #b91c1c);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
             <!-- Kolom 1: Profil Instansi & Alamat -->
             <div>
                 <div class="flex items-center gap-3 mb-4">
                     <x-logo class="w-10 h-10" />
-                    <div>
-                        <h2 class="text-sm font-bold text-white uppercase tracking-wider">
+                    <div class="min-w-0">
+                        <h2 class="text-sm font-bold text-white uppercase tracking-wider truncate">
                             {{ $pengaturan->nama_instansi ?? 'PEMERINTAH DAERAH' }}
                         </h2>
-                        <p class="text-xs text-slate-400">
+                        <p class="text-xs text-slate-400 truncate">
                             {{ $pengaturan->sub_nama_instansi ?? 'Dinas Komunikasi dan Informatika' }}
                         </p>
                     </div>
@@ -71,16 +71,16 @@
                 </h3>
                 <p class="text-xs text-slate-400 mb-3">Ikuti kanal media sosial resmi kami untuk kabar dan siaran pers terkini:</p>
                 <div class="flex items-center gap-3 mb-6">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center text-white text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" aria-label="Facebook Resmi Instansi">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-8 sm:h-8 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center text-white text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" aria-label="Facebook Resmi Instansi">
                         FB
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-pink-600 flex items-center justify-center text-white text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" aria-label="Instagram Resmi Instansi">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-8 sm:h-8 rounded-full bg-slate-800 hover:bg-pink-600 flex items-center justify-center text-white text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" aria-label="Instagram Resmi Instansi">
                         IG
                     </a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-red-600 flex items-center justify-center text-white text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" aria-label="YouTube Resmi Instansi">
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-8 sm:h-8 rounded-full bg-slate-800 hover:bg-red-600 flex items-center justify-center text-white text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" aria-label="YouTube Resmi Instansi">
                         YT
                     </a>
-                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-white text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" aria-label="X / Twitter Resmi Instansi">
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-8 sm:h-8 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-white text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" aria-label="X / Twitter Resmi Instansi">
                         𝕏
                     </a>
                 </div>

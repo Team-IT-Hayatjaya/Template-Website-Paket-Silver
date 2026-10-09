@@ -12,28 +12,33 @@
             border-radius: 12px;
             z-index: 1;
         }
+        @media (max-width: 640px) {
+            #map-container {
+                height: 280px;
+            }
+        }
     </style>
 @endpush
 
 @section('content')
-<div class="space-y-10">
+<div class="space-y-8 sm:space-y-10">
     <!-- Header Halaman Kontak -->
-    <div class="border-b border-slate-200 pb-6">
-        <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+    <div class="border-b border-slate-200 pb-5 sm:pb-6">
+        <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
             Saluran Resmi
         </span>
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">
+        <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">
             Kontak Kami & Formulir Aspirasi Pengaduan
         </h1>
-        <p class="text-sm text-slate-600 mt-1 max-w-3xl leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl leading-relaxed">
             Hubungi meja pelayanan informasi kami atau sampaikan aspirasi, saran, dan pengaduan masyarakat secara langsung melalui saluran resmi yang tersedia.
         </p>
     </div>
 
     <!-- Kartu Informasi Kontak Cepat -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <!-- Alamat -->
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
                 <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center text-xl mb-3">
                     📍
@@ -174,6 +179,15 @@
 
             var marker = L.marker([-6.1753924, 106.8271528]).addTo(map);
             marker.bindPopup("<b>Meja Layanan PPID Utama</b><br>{{ $pengaturan->nama_instansi ?? 'Kantor Pemerintah' }}<br><small>Senin-Jumat 08.00-15.30 WIB</small>").openPopup();
+
+            // Penyesuaian Responsif Peta untuk Semua Ukuran Layar
+            setTimeout(function() {
+                map.invalidateSize();
+            }, 300);
+
+            window.addEventListener('resize', function() {
+                map.invalidateSize();
+            });
         });
     </script>
 @endpush

@@ -18,7 +18,7 @@
     </div>
 
     <!-- Grid Foto Dokumentasi -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         @foreach($galeri as $item)
             <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow group flex flex-col">
                 <div class="aspect-4/3 w-full bg-gradient-to-br from-slate-800 to-blue-950 flex flex-col items-center justify-center text-white relative p-6 text-center group-hover:scale-[1.02] transition-transform">
@@ -28,7 +28,7 @@
                         {{ $item['kategori'] }}
                     </span>
                 </div>
-                <div class="p-5 flex-1 flex flex-col justify-between">
+                <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                     <div>
                         <span class="text-[11px] text-slate-400 font-medium block mb-1">📅 {{ $item['tanggal'] }}</span>
                         <h3 class="text-sm font-bold text-slate-900 leading-snug">

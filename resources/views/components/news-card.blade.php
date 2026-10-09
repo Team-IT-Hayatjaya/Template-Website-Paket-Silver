@@ -20,15 +20,16 @@
             </span>
         </div>
     @else
+        <div class="h-1.5 w-full" style="background: linear-gradient(90deg, var(--gov-primary, #1e3a8a), var(--gov-secondary, #b91c1c));"></div>
         <div class="p-4 pb-0 flex items-center justify-between">
-            <span class="px-2.5 py-0.5 text-xs font-semibold rounded-md text-white"
+            <span class="px-2.5 py-0.5 text-xs font-semibold rounded-md text-white shadow-2xs"
                   style="background-color: var(--gov-primary, #1e3a8a);">
                 {{ $category }}
             </span>
         </div>
     @endif
 
-    <div class="p-5 flex-1 flex flex-col">
+    <div class="p-4 sm:p-5 flex-1 flex flex-col">
         @if($date)
             <time class="text-xs text-slate-500 mb-2 flex items-center gap-1.5 font-medium">
                 <span aria-hidden="true">📅</span> {{ $date }}
