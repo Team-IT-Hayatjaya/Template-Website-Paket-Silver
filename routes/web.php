@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PublicPageController::class, 'home'])->name('home');
 Route::get('/profil', [PublicPageController::class, 'profil'])->name('profil');
 Route::get('/kontak', [PublicPageController::class, 'kontak'])->name('kontak');
+Route::get('/komponen', [PublicPageController::class, 'komponen'])->name('komponen');
 
 // Autentikasi Panel Admin
 Route::prefix('admin')->name('admin.')->group(function () {

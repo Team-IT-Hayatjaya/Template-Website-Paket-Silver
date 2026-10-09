@@ -29,4 +29,12 @@ class PublicPageController extends Controller
     {
         return view('pages.kontak');
     }
+
+    /**
+     * Halaman Showcase Komponen UI Standar (Paket Silver).
+     */
+    public function komponen()
+    {
+        return view('pages.komponen');
+    }
 }
