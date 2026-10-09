@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('alamat')->nullable();
             $table->string('telepon')->nullable();
             $table->string('email')->nullable();
+            $table->string('email_atasan_ppid')->nullable();
             $table->text('jam_layanan')->nullable();
             $table->text('maklumat_pelayanan')->nullable();
             $table->timestamps();

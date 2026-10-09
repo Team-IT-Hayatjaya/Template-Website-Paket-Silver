@@ -22,6 +22,7 @@ class PengaturanPpid extends Model
         'alamat',
         'telepon',
         'email',
+        'email_atasan_ppid',
         'jam_layanan',
         'maklumat_pelayanan',
     ];

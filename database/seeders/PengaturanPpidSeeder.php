@@ -23,6 +23,7 @@ class PengaturanPpidSeeder extends Seeder
                 'alamat' => 'Gedung Sekretariat Daerah Lt. 2, Jl. Pahlawan No. 45, Kompleks Perkantoran Pemerintah',
                 'telepon' => '(021) 1234-5678',
                 'email' => 'ppid@instansi.go.id',
+                'email_atasan_ppid' => 'atasan.ppid@instansi.go.id',
                 'jam_layanan' => "Senin s.d. Kamis: 08.00 - 15.30 WIB\nJumat: 08.00 - 15.00 WIB",
                 'maklumat_pelayanan' => 'Kami berkomitmen memberikan pelayanan informasi publik dengan sungguh-sungguh, transparan, cepat, tepat waktu, dan tanpa diskriminasi demi terwujudnya keterbukaan informasi di lingkungan instansi kami.',
             ]

@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        $this->call(PengaturanPpidSeeder::class);
+        $this->call([
+            PengaturanPpidSeeder::class,
+            KategoriInformasiSeeder::class,
+            StatusPermohonanSeeder::class,
+        ]);
     }
 }
